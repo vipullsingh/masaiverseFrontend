@@ -31,6 +31,22 @@
       "batch_name": "WEB-14",
       "profession": "Backend",
       "id": 4
+    },
+    {
+      "name": "Nisha",
+      "age": 32,
+      "place": "Ranchi",
+      "batch_name": "WEB-14",
+      "profession": "Student",
+      "id": 5
+    },
+    {
+      "name": "Sonu",
+      "age": 45,
+      "place": "Patna",
+      "batch_name": "WEB-13",
+      "profession": "Student",
+      "id": 6
     }
   ]
 }

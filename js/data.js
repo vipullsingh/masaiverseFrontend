@@ -89,6 +89,7 @@ document.addEventListener('DOMContentLoaded', function() {
             // Remove the user from filteredUsers array
             filteredUsers = filteredUsers.filter(user => user.id !== userId);
             totalUsers--;
+            location.reload()
             // Re-render the user data and pagination
             renderUserData();
             renderPagination();
