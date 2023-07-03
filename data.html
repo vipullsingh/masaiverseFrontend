@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Masaiverse Admin Data</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<style>
+    /* Reset default styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body styles */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f2f2f2;
+}
+
+/* Navbar styles */
+.navbar {
+  background-color: #333;
+  padding: 10px;
+}
+
+.navbar ul {
+  list-style-type: none;
+  display: flex;
+  justify-content: center;
+}
+
+.navbar li {
+  margin: 0 10px;
+}
+
+.navbar a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.navbar a:hover {
+  text-decoration: underline;
+}
+
+/* Content styles */
+.content {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  margin-bottom: 20px;
+}
+
+.filters {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.filters label {
+  margin-right: 10px;
+}
+
+.filters select,
+.filters input[type="text"] {
+  padding: 5px;
+  border-radius: 3px;
+  border: 1px solid #ccc;
+}
+
+.user-data {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.user-card {
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.user-card img {
+  width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+.user-card h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.user-card p {
+  margin-bottom: 5px;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.pagination button {
+  padding: 5px 10px;
+  margin: 0 5px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+.pagination button:focus {
+  outline: none;
+}
+
+.pagination button.active {
+  background-color: #333;
+  color: #fff;
+}
+
+</style>
+
+<body>
+  <nav class="navbar">
+    <ul>
+      <li><a href="login.html">Login</a></li>
+      <li><a href="data.html">Data</a></li>
+      <li><a href="reports.html">Reports</a></li>
+    </ul>
+  </nav>
+
+  <div class="content">
+    <h2>User Data</h2>
+
+    <div class="filters">
+      <label for="sort">Sort by Age:</label>
+      <select id="sort">
+        <option value="asc">Ascending</option>
+        <option value="desc">Descending</option>
+      </select>
+      <label for="filter">Filter by Profession:</label>
+      <select id="filter">
+        <option value="">All</option>
+        <option value="FSD">FSD</option>
+        <option value="Frontend">Frontend</option>
+        <option value="Backend">Backend</option>
+        <option value="Student">Student</option>
+      </select>
+      <label for="search">Search by Name:</label>
+      <input type="text" id="search">
+    </div>
+
+    <div id="userData" class="user-data"></div>
+
+    <div id="pagination" class="pagination"></div>
+  </div>
+
+  <script src="js/data.js"></script>
+</body>
+
+</html>

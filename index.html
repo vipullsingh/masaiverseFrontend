@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Masaiverse Event</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<style>
+    body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+h1 {
+  margin: 20px 0;
+}
+
+.buttons {
+  margin: 20px 0;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin: 0 10px;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+</style>
+<body>
+  <h1>Welcome to Masaiverse Event</h1>
+
+  <div class="buttons">
+    <button id="adminButton">Admin Section</button>
+    <button id="userButton">User Section</button>
+  </div>
+  <script>
+      // Function to handle button click for user section
+function goToUserSection() {
+    window.location.href = 'user.html';
+  }
+  
+  // Function to handle button click for admin section
+  function goToAdminSection() {
+    window.location.href = 'login.html';
+  }
+  
+  // Get the user and admin buttons
+  const userButton = document.getElementById('userButton');
+  const adminButton = document.getElementById('adminButton');
+  
+  // Add event listeners to the buttons
+  userButton.addEventListener('click', function(){
+    window.location.href = 'user.html'
+  });
+  adminButton.addEventListener('click', function(){
+    window.location.href = 'admin.html'
+  });
+  </script>
+</body>
+
+</html>
