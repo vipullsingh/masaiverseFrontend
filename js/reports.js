@@ -4,7 +4,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const professionalsAttendingElement = document.getElementById('professionalsAttending');
     const averageAgeElement = document.getElementById('averageAge');
   
-    // Fetch event data from the server
     function fetchEventData() {
       fetch('https://json-mock-kg62.onrender.com/users')
         .then(response => response.json())
@@ -17,7 +16,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
   
-    // Calculate and display the reports
     function calculateReports(eventData) {
       const totalGuests = eventData.length;
       const studentsAttending = eventData.filter(event => event.profession === 'Student').length;
@@ -32,7 +30,6 @@ document.addEventListener('DOMContentLoaded', function() {
       averageAgeElement.textContent = averageAge.toFixed(2);
     }
   
-    // Initialize the reports
     fetchEventData();
   });
   

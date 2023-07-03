@@ -7,8 +7,6 @@ document.addEventListener('DOMContentLoaded', function() {
       const email = document.getElementById('email').value;
       const password = document.getElementById('password').value;
   
-      // Perform login request using AJAX or fetch
-      // Example using fetch:
       fetch('https://reqres.in/api/login', {
         method: 'POST',
         headers: {
@@ -22,10 +20,8 @@ document.addEventListener('DOMContentLoaded', function() {
       .then(response => response.json())
       .then(data => {
         if (data.token) {
-          // Successful login, redirect to data.html
           window.location.href = 'data.html';
         } else {
-          // Invalid login, show error message
           alert('Invalid credentials. Please try again.');
         }
       })

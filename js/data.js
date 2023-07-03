@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const pagination = document.getElementById('pagination');
   
     let currentPage = 1;
-    const usersPerPage = 5;
+    const usersPerPage = 4;
     let totalUsers = 0;
     let userData = [];
     let filteredUsers = [];
