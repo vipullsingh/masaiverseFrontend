@@ -184,5 +184,34 @@ document.addEventListener('DOMContentLoaded', function() {
   
     // Fetch user data on page load
     fetchUserData();
+
+// Attach event listeners to edit and delete buttons
+function attachButtonListeners() {
+  const editButtons = document.getElementsByClassName('edit-btn');
+  const deleteButtons = document.getElementsByClassName('delete-btn');
+
+  Array.from(editButtons).forEach(button => {
+    button.addEventListener('click', function() {
+      const userId = this.getAttribute('data-id');
+      const user = filteredUsers.find(user => user.id === userId);
+      handleEditUser(user);
+    });
+  });
+
+  Array.from(deleteButtons).forEach(button => {
+    button.addEventListener('click', function() {
+      const userId = this.getAttribute('data-id');
+      handleDeleteUser(userId);
+    });
+  });
+}
+attachButtonListeners()
+
+// Handle edit user
+function handleEditUser(user) {
+  // Redirect to edit.html with the user ID as a query parameter
+  window.location.href = `edit.html?id=${user.id}`;
+}
+
   });
   

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Edit User</title>
+</head>
+<body>
+  <h1>Edit User</h1>
+
+  <form id="editForm">
+    <label for="name">Name:</label>
+    <input type="text" id="name" required>
+
+    <label for="age">Age:</label>
+    <input type="number" id="age" required>
+
+    <label for="place">Place:</label>
+    <input type="text" id="place" required>
+
+    <label for="batch">Batch Name:</label>
+    <input type="text" id="batch" required>
+
+    <label for="profession">Profession:</label>
+    <input type="text" id="profession" required>
+
+    <button type="submit">Save</button>
+  </form>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const userId = urlParams.get('id');
+
+      // Fetch user data based on the user ID
+      function fetchUserData() {
+        fetch('https://json-mock-kg62.onrender.com/users')
+          .then(response => response.json())
+          .then(data => {
+            const user = data.users.find(user => user.id === parseInt(userId));
+            populateForm(user);
+          })
+          .catch(error => {
+            console.error('User data fetch error:', error);
+            alert('An error occurred while fetching user data. Please try again later.');
+          });
+      }
+
+      // Populate the form with the user's data
+      function populateForm(user) {
+        const nameInput = document.getElementById('name');
+        const ageInput = document.getElementById('age');
+        const placeInput = document.getElementById('place');
+        const batchInput = document.getElementById('batch');
+        const professionInput = document.getElementById('profession');
+
+        // Set the input values based on the user's data
+        nameInput.value = user.name;
+        ageInput.value = user.age;
+        placeInput.value = user.place;
+        batchInput.value = user.batch_name;
+        professionInput.value = user.profession;
+
+        // Add event listener to the form submit event
+        const editForm = document.getElementById('editForm');
+        editForm.addEventListener('submit', function(event) {
+          event.preventDefault();
+
+          // Get the updated values from the form
+          const updatedUser = {
+            id: userId,
+            name: nameInput.value,
+            age: parseInt(ageInput.value),
+            place: placeInput.value,
+            batch_name: batchInput.value,
+            profession: professionInput.value
+          };
+
+          // Call a function to handle the update operation (e.g., make a fetch request)
+          handleUpdateUser(updatedUser);
+        });
+      }
+
+      // Handle the update user operation
+      function handleUpdateUser(user) {
+        fetch(`https://json-mock-kg62.onrender.com/users/${user.id}`, {
+          method: 'PUT',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(user)
+        })
+          .then(response => {
+            if (response.ok) {
+              alert('User updated successfully.');
+              window.location.href = 'index.html'; // Redirect to the main page after updating
+            } else {
+              throw new Error('Failed to update user.');
+            }
+          })
+          .catch(error => {
+            console.error('Update user error:', error);
+            alert('An error occurred while updating the user. Please try again later.');
+          });
+      }
+
+      // Fetch user data on page load
+      fetchUserData();
+    });
+  </script>
+</body>
+</html>
