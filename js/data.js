@@ -1,3 +1,4 @@
+
 document.addEventListener('DOMContentLoaded', function() {
     const userDataElement = document.getElementById('userData');
     const sortSelect = document.getElementById('sort');
@@ -10,6 +11,13 @@ document.addEventListener('DOMContentLoaded', function() {
     let totalUsers = 0;
     let userData = [];
     let filteredUsers = [];
+
+      // Check if token is present
+  const token = localStorage.getItem('token');
+  if (!token) {
+    window.location.href = 'login.html';
+    return;
+  }
   
     // Fetch user data from JSON server
     function fetchUserData() {

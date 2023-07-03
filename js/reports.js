@@ -3,6 +3,13 @@ document.addEventListener('DOMContentLoaded', function() {
     const studentsAttendingElement = document.getElementById('studentsAttending');
     const professionalsAttendingElement = document.getElementById('professionalsAttending');
     const averageAgeElement = document.getElementById('averageAge');
+
+          // Check if token is present
+  const token = localStorage.getItem('token');
+  if (!token) {
+    window.location.href = 'login.html';
+    return;
+  }
   
     function fetchEventData() {
       fetch('https://json-mock-kg62.onrender.com/users')
